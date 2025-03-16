@@ -9,13 +9,14 @@ dotenv.config()
 const app = express()
 app.use('/tmp',express.static('tmp'))
 conn()
-app.use(cors(
-    {
-        origin:'https://doc-vault-client.vercel.app',
-        methods:['GET','POST','DELETE','PUT','PATCH'],
-        credentials:true
-    }
-))
+// app.use(cors(
+//     {
+//         origin:['https://doc-vault-client.vercel.app','http://localhost:5173'],
+//         methods:['GET','POST','DELETE','PUT','PATCH'],
+//         credentials:true
+//     }
+// ))
+app.use(cors())
 
 app.use(express.json())
 app.use('/api/auth',auth)
