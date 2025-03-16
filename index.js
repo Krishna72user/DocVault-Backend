@@ -9,7 +9,13 @@ dotenv.config()
 const app = express()
 app.use('/upload',express.static('upload'))
 conn()
-app.use(cors())
+app.use(cors(
+    {
+        origin:'https://doc-vault-client.vercel.app',
+        methods:['GET','POST','DELETE','PUT','PATCH'],
+        credentials:true
+    }
+))
 
 app.use(express.json())
 app.use('/api/auth',auth)
