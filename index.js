@@ -7,7 +7,7 @@ import {user} from './routes/user.js'
 
 dotenv.config()
 const app = express()
-app.use('/upload',express.static('upload'))
+app.use('/tmp',express.static('tmp'))
 conn()
 app.use(cors(
     {
